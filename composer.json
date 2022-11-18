@@ -3,8 +3,12 @@
   "description": "Pacote com informações de todos os paises, estados e cidades (Estados e cidades brasileiras).",
   "keywords": [
     "PauloFelipeM",
+    "laravel-brazilian-regions",
+    "laravel-migrations-seeders-paises-estados-cidades-br",
     "laravel-migrations-seeders-paises-estados-cidades-BR",
+    "laravel-migrations-seeders-paises-estados-cidades-brasil",
     "brazilian regions",
+    "regiões do brasil",
     "regiões",
     "estados",
     "cidades",
