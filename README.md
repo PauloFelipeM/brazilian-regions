@@ -10,8 +10,8 @@ da [API de serviço de dados do IBGE.](https://servicodados.ibge.gov.br/api/docs
 
 ## Requeriments
 
-* PHP 8.1+
-* Laravel 9.0+
+- PHP 8.1+
+- Laravel 9.0+
 
 ## Instalação
 
@@ -53,22 +53,21 @@ php artisan db:seed --class="PauloFelipeM\\BrazilianRegions\\Database\\Seeds\\Da
 
 A tabela `countries` contém:
 
-- Título e slug
+- m_49: ID
+- acronym: SIGLA
+- name: NOME
+- region: REGIÃO
 
 A tabela `states` contém:
 
-- Título, abreviação e slug
-- Código ISO
-- Informação populacional
+- acronym: SIGLA
+- name: NOME
+- region: REGIÃO
+- region_acronym: SIGLA REGIÃO
 
 A tabela `cities` contém:
 
-- Título e slug
-- DDD das cidades
-- Código ISO
-- Informação populacional
-- Latitude e longitude
-- Renda per-capita
+- name: NOME
 
 ### Changelog
 
