@@ -1,0 +1,40 @@
+#!/bin/bash
+# destination of the final changelog file
+branch=$(git branch --show-current)
+messagecheck=`echo $branch | grep -w "master\|develop"`
+
+if [ ! -z "$messagecheck" ]; then
+  OUTPUT_FILE=CHANGELOG.md
+  projectUrl="https://github.com/PauloFelipeM/brazilian-regions"
+  commit=$projectUrl"/commit/"
+  release=$projectUrl"/commits/"
+  develop=$projectUrl"/commits/develop"
+
+  echo "CHANGELOG" > $OUTPUT_FILE
+  echo ---------------------- >> $OUTPUT_FILE
+  git for-each-ref --sort='*authordate' --format='%(tag)' refs/tags |tac |grep -v '^$' | while read TAG ; do
+  echo >> $OUTPUT_FILE
+  if [ $NEXT ];then
+      echo [$NEXT] >> $OUTPUT_FILE
+  else
+      echo "[Novidades]($develop)" >> $OUTPUT_FILE
+  fi
+  GIT_PAGER=cat git log --no-merges --format=" * [%s](${commit}%H)" $TAG..$NEXT >> $OUTPUT_FILE
+  NEXT=$TAG
+  done
+  FIRST=$(git tag -l | head -1) >> $OUTPUT_FILE
+  echo >> $OUTPUT_FILE
+  echo [$FIRST]"(${release}${FIRST})" >> $OUTPUT_FILE
+  GIT_PAGER=cat git log --no-merges --format=" * [%s](${commit}%H)" $FIRST >> $OUTPUT_FILE
+
+  git add $OUTPUT_FILE
+  git commit --amend --no-edit --no-verify
+
+  #add CHANGELOG from branch develop to master
+  git checkout master
+  git restore -s develop  CHANGELOG.md
+  git add $OUTPUT_FILE
+  git commit --amend --no-edit --no-verify
+  git checkout develop
+  echo -e "\e[34mPopulated Changelog in $OUTPUT_FILE\033[0m"
+fi
