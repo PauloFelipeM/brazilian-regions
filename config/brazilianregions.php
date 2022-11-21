@@ -3,7 +3,7 @@ return [
     /**
      * Versão da aplicação
      */
-    'version' => '1.0.0',
+    'version' => '1.0.20',
 
     /**
      * Models padrões, é possível criar novas models e apontar no config
