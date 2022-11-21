@@ -3,6 +3,11 @@ CHANGELOG
 
 [Novidades](https://github.com/PauloFelipeM/brazilian-regions/commits/develop)
 
+[v1.0.20]
+ * [Ajuste config com número da versão](https://github.com/PauloFelipeM/brazilian-regions/commit/402ab1f0abee634591983e20a34fc9c8515db93c)
+ * [Removido URLs do IBGE, ajustado seeders para pegar as tables e relation pelo config](https://github.com/PauloFelipeM/brazilian-regions/commit/6e4781578a09f10fc7dd644ab909ad7800550505)
+ * [Ajustes gerais para funcionalidade da biblioteca](https://github.com/PauloFelipeM/brazilian-regions/commit/301d40245368e13e5719fbd35777178ac17bfb2c)
+
 [v1.0.10]
  * [Ajustes gerais para funcionalidade da biblioteca](https://github.com/PauloFelipeM/brazilian-regions/commit/fe30af6db663fadf2c6362f340fd102e8708fdf9)
 

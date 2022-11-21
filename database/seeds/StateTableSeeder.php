@@ -17,7 +17,10 @@ class StateTableSeeder extends Seeder
     {
         $file = file_get_contents(__DIR__ . '/../../resources/states.json');
         $states = json_decode($file, false, 512, JSON_THROW_ON_ERROR);
-        $brazil = DB::table('countries')->where('acronym', 'BRA')->first();
+        $tableNames = config('brazilianregions.table_names');
+        $columnNames = config('brazilianregions.column_names');
+
+        $brazil = DB::table($tableNames['country'])->where('acronym', 'BRA')->first();
         $data = [];
         foreach ($states as $state) {
             $data[] = [
@@ -26,10 +29,10 @@ class StateTableSeeder extends Seeder
                 'acronym' => $state->sigla,
                 'region' => $state->regiao->nome,
                 'region_acronym' => $state->regiao->sigla,
-                'country_id' => $brazil->id,
+                $columnNames['country_key'] => $brazil->id,
             ];
         }
 
-        DB::table('states')->insert($data);
+        DB::table($tableNames['state'])->insert($data);
     }
 }
