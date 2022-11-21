@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBrazilianRegionsTables extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -62,4 +62,4 @@ class CreateBrazilianRegionsTables extends Migration
         Schema::dropIfExists($tableNames['state']);
         Schema::dropIfExists($tableNames['country']);
     }
-}
+};

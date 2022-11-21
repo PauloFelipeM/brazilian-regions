@@ -8,7 +8,7 @@ return [
     /**
      * URLs do IBGE com as rotas de paises, estados e cidades
      */
-    'endpoints' => [
+    'urls' => [
         'country_url' => 'https://servicodados.ibge.gov.br/api/v1/localidades/paises',
 
         'state_url' => 'https://servicodados.ibge.gov.br/api/v1/localidades/estados',

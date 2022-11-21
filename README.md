@@ -34,7 +34,7 @@ arquivo config/app.php:
 ];
 ```
 
-Você deve publicar a migração e o arquivo de configuração config/permission.php com:
+Você deve publicar a migração e o arquivo de configuração config/brazilianregions.php com:
 
 ```bash
 php artisan vendor:publish --provider="PauloFelipeM\BrazilianRegions\BrazilianRegionsServiceProvider"
