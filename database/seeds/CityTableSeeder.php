@@ -17,15 +17,18 @@ class CityTableSeeder extends Seeder
     {
         $file = file_get_contents(__DIR__ . '/../../resources/cities.json');
         $cities = json_decode($file, false, 512, JSON_THROW_ON_ERROR);
+        $tableNames = config('brazilianregions.table_names');
+        $columnNames = config('brazilianregions.column_names');
+
         $data = [];
         foreach ($cities as $city) {
             $data[] = [
                 'id' => $city->id,
                 'name' => $city->nome,
-                'state_id' => $city->microrregiao->mesorregiao->UF->id,
+                $columnNames['state_key'] => $city->microrregiao->mesorregiao->UF->id,
             ];
         }
 
-        DB::table('cities')->insert($data);
+        DB::table($tableNames['city'])->insert($data);
     }
 }

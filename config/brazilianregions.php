@@ -3,18 +3,7 @@ return [
     /**
      * Versão da aplicação
      */
-    'version' => '1.0.0',
-
-    /**
-     * URLs do IBGE com as rotas de paises, estados e cidades
-     */
-    'urls' => [
-        'country_url' => 'https://servicodados.ibge.gov.br/api/v1/localidades/paises',
-
-        'state_url' => 'https://servicodados.ibge.gov.br/api/v1/localidades/estados',
-
-        'city_url' => 'https://servicodados.ibge.gov.br/api/v1/localidades/municipios',
-    ],
+    'version' => '1.0.20',
 
     /**
      * Models padrões, é possível criar novas models e apontar no config
@@ -47,13 +36,5 @@ return [
         'state_key' => 'state_id',
 
         'city_key' => 'city_id',
-    ],
-
-    /**
-     * headers usado no guzzle para requisição da API do IBGE
-     */
-    'headers' => [
-        'Accept: application/json',
-        'Content-Type: application/json',
     ],
 ];
